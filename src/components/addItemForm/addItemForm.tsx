@@ -1,5 +1,7 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
+import s from './addItemForm.module.css';
+
 import { ReturnComponentType } from 'types';
 import { trimFunction } from 'utils';
 
@@ -12,6 +14,7 @@ const ENTER_CHARCODE = 13;
 export const AddItemForm: React.FC<AddItemFormPropsType> = ({
   setTitle,
 }): ReturnComponentType => {
+  const [error, setError] = useState<string>('');
   const [localTitle, setLocalTitle] = useState('');
 
   const changeTitle = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -20,8 +23,12 @@ export const AddItemForm: React.FC<AddItemFormPropsType> = ({
 
   const addTitle = (): void => {
     const newStr = trimFunction(localTitle);
-    setTitle(newStr);
-    setLocalTitle(newStr);
+    if (newStr) {
+      setTitle(newStr);
+      setLocalTitle(newStr);
+    } else {
+      setError('Enter correct data');
+    }
   };
 
   const onKeyPressHandle = (e: KeyboardEvent<HTMLInputElement>): void => {
@@ -33,15 +40,20 @@ export const AddItemForm: React.FC<AddItemFormPropsType> = ({
   return (
     <div>
       <input
+        className={error && 'error'}
         type="text"
         value={localTitle}
         onChange={changeTitle}
         onKeyPress={onKeyPressHandle}
+        onBlur={addTitle}
+        onFocus={() => setError('')}
       />
 
       <button type="button" onClick={addTitle}>
         Add
       </button>
+
+      {error && <div className={s.errorMessage}>{error}</div>}
     </div>
   );
 };

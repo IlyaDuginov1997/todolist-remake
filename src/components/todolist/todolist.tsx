@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 
 import s from './todolist.module.css';
 
-import { AddItemForm } from 'components/editableSpan';
+import { AddItemForm } from 'components/addItemForm';
 import { TaskStatusMode, TaskType } from 'components/todolist/types';
 import { ReturnComponentType } from 'types';
 
