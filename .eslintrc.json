@@ -31,6 +31,7 @@
     "no-magic-numbers": "off",
     "default-param-last": "off",
     "no-use-before-define": "off",
+    "jsx-a11y/no-autofocus": "off",
     "no-multiple-empty-lines": [
       "error",
       {

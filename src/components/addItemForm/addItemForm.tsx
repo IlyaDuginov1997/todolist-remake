@@ -19,13 +19,14 @@ export const AddItemForm: React.FC<AddItemFormPropsType> = ({
 
   const changeTitle = (e: ChangeEvent<HTMLInputElement>): void => {
     setLocalTitle(e.currentTarget.value);
+    setError('');
   };
 
   const addTitle = (): void => {
     const newStr = trimFunction(localTitle);
     if (newStr) {
       setTitle(newStr);
-      setLocalTitle(newStr);
+      setLocalTitle('');
     } else {
       setError('Enter correct data');
     }
@@ -45,8 +46,6 @@ export const AddItemForm: React.FC<AddItemFormPropsType> = ({
         value={localTitle}
         onChange={changeTitle}
         onKeyPress={onKeyPressHandle}
-        onBlur={addTitle}
-        onFocus={() => setError('')}
       />
 
       <button type="button" onClick={addTitle}>

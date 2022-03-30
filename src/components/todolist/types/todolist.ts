@@ -1,4 +1,7 @@
+import { FilterStatus } from 'components';
+
 export type TodolistType = {
   title: string;
-  id: number;
+  id: string;
+  filter: FilterStatus;
 };

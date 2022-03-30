@@ -1,1 +1,1 @@
-export * from 'components/addItemForm/addItemForm';
+export * from './addItemForm';

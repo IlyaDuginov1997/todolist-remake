@@ -1,3 +1,3 @@
 export * from './todolist';
 export * from './task';
-export * from './taskStatusMode';
+export * from 'components/todolist/types/filterStatus';
