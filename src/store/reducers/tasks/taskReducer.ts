@@ -46,10 +46,18 @@ export const taskReducer = (state: TasksType, action: TaskActionType): TasksType
     }
 
     case 'TODO/ADD-TODOLIST': {
+      const { todolistId } = action.payload;
       return {
-        [action.payload.todolistId]: [],
+        [todolistId]: [],
         ...state,
       };
+    }
+
+    case 'TODO/REMOVE-TODOLIST': {
+      const { todolistId } = action.payload;
+      const copyState = { ...state };
+      delete copyState[todolistId];
+      return copyState;
     }
 
     default:
