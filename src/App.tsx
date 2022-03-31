@@ -38,17 +38,21 @@ const App = (): ReturnComponentType => {
   const changeTaskStatus = (
     todolistId: string,
     taskId: string,
-    status: boolean,
+    taskStatus: boolean,
   ): void => {
     const newTasks = tasks[todolistId].map(task =>
-      task.id === taskId ? { ...task, isDone: status } : task,
+      task.id === taskId ? { ...task, isDone: taskStatus } : task,
     );
     setTasks({ ...tasks, [todolistId]: newTasks });
   };
 
-  const changeTaskTitle = (todolistId: string, taskId: string, title: string): void => {
+  const changeTaskTitle = (
+    todolistId: string,
+    taskId: string,
+    taskTitle: string,
+  ): void => {
     const newTasks = tasks[todolistId].map(task =>
-      task.id === taskId ? { ...task, taskTitle: title } : task,
+      task.id === taskId ? { ...task, taskTitle } : task,
     );
     setTasks({ ...tasks, [todolistId]: newTasks });
   };
