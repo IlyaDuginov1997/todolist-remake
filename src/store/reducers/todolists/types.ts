@@ -1,12 +1,12 @@
 import {
-  addTodolist,
-  changeTodolistFilterStatus,
-  changeTodolistTitle,
-  removeTodolist,
+  addTodolistAC,
+  changeTodolistFilterStatusAC,
+  changeTodolistTitleAC,
+  removeTodolistAC,
 } from 'store';
 
 export type TodolistActionTypes =
-  | ReturnType<typeof addTodolist>
-  | ReturnType<typeof removeTodolist>
-  | ReturnType<typeof changeTodolistTitle>
-  | ReturnType<typeof changeTodolistFilterStatus>;
+  | ReturnType<typeof addTodolistAC>
+  | ReturnType<typeof removeTodolistAC>
+  | ReturnType<typeof changeTodolistTitleAC>
+  | ReturnType<typeof changeTodolistFilterStatusAC>;

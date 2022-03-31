@@ -2,10 +2,10 @@ import { v1 } from 'uuid';
 
 import { FilterStatus, TodolistType } from 'components';
 import {
-  addTodolist,
-  changeTodolistFilterStatus,
-  changeTodolistTitle,
-  removeTodolist,
+  addTodolistAC,
+  changeTodolistFilterStatusAC,
+  changeTodolistTitleAC,
+  removeTodolistAC,
   todolistReducer,
 } from 'store';
 
@@ -28,7 +28,7 @@ test('todolists will be added', () => {
   const firstTodolist = 0;
   const newTodolistTitle = 'New title';
 
-  const endState = todolistReducer(startState, addTodolist(newTodolistTitle));
+  const endState = todolistReducer(startState, addTodolistAC(newTodolistTitle));
 
   expect(endState.length).toBe(todolistsCount);
   expect(endState[firstTodolist].title).toBe(newTodolistTitle);
@@ -38,7 +38,7 @@ test('todolists will be removed', () => {
   const todolistsCount = 1;
   const firstTodolist = 0;
 
-  const endState = todolistReducer(startState, removeTodolist(todolistId2));
+  const endState = todolistReducer(startState, removeTodolistAC(todolistId2));
 
   expect(endState.length).toBe(todolistsCount);
   expect(endState[firstTodolist].id).toBe(todolistId1);
@@ -51,7 +51,7 @@ test('title of todolists will be changed', () => {
 
   const endState = todolistReducer(
     startState,
-    changeTodolistTitle(todolistId1, newTodolistTitle),
+    changeTodolistTitleAC(todolistId1, newTodolistTitle),
   );
 
   expect(endState.length).toBe(todolistsCount);
@@ -65,7 +65,7 @@ test('filter-status of todolists will be changed', () => {
 
   const endState = todolistReducer(
     startState,
-    changeTodolistFilterStatus(todolistId1, newTodolistStatus),
+    changeTodolistFilterStatusAC(todolistId1, newTodolistStatus),
   );
 
   expect(endState.length).toBe(todolistsCount);

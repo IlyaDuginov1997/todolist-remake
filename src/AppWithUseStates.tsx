@@ -16,7 +16,8 @@ import { ReturnComponentType } from 'types';
 const todolistId1 = v1();
 const todolistId2 = v1();
 
-const App = (): ReturnComponentType => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const AppWithUseStates = (): ReturnComponentType => {
   const [tasks, setTasks] = useState<TasksType>({
     [todolistId1]: [
       { id: v1(), taskTitle: 'Meat', isDone: false },
@@ -138,5 +139,3 @@ const App = (): ReturnComponentType => {
     </div>
   );
 };
-
-export default App;

@@ -1,16 +1,16 @@
 import {
-  addTask,
-  addTodolist,
-  changeTaskStatus,
-  changeTaskTitle,
-  removeTask,
-  removeTodolist,
+  addTaskAC,
+  addTodolistAC,
+  changeTaskStatusAC,
+  changeTaskTitleAC,
+  removeTaskAC,
+  removeTodolistAC,
 } from 'store';
 
 export type TaskActionType =
-  | ReturnType<typeof addTask>
-  | ReturnType<typeof removeTask>
-  | ReturnType<typeof changeTaskTitle>
-  | ReturnType<typeof changeTaskStatus>
-  | ReturnType<typeof addTodolist>
-  | ReturnType<typeof removeTodolist>;
+  | ReturnType<typeof addTaskAC>
+  | ReturnType<typeof removeTaskAC>
+  | ReturnType<typeof changeTaskTitleAC>
+  | ReturnType<typeof changeTaskStatusAC>
+  | ReturnType<typeof addTodolistAC>
+  | ReturnType<typeof removeTodolistAC>;

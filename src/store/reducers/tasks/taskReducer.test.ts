@@ -2,10 +2,10 @@ import { v1 } from 'uuid';
 
 import { TasksType } from 'components';
 import {
-  addTask,
-  changeTaskStatus,
-  changeTaskTitle,
-  removeTask,
+  addTaskAC,
+  changeTaskStatusAC,
+  changeTaskTitleAC,
+  removeTaskAC,
   taskReducer,
 } from 'store';
 
@@ -37,7 +37,7 @@ test('task will be added', () => {
   const tasksInTodolist2 = 3;
   const newTodolistTitle = 'New title for task';
 
-  const endState = taskReducer(startState, addTask(todolistId1, newTodolistTitle));
+  const endState = taskReducer(startState, addTaskAC(todolistId1, newTodolistTitle));
 
   expect(Object.keys(endState).length).toBe(todolistsCount);
   expect(endState[todolistId1].length).toBe(tasksInTodolist1);
@@ -51,7 +51,7 @@ test('task will be removed', () => {
   const firstTaskInTodolist = 0;
   const taskId = startState[todolistId1][firstTaskInTodolist].id;
 
-  const endState = taskReducer(startState, removeTask(todolistId1, taskId));
+  const endState = taskReducer(startState, removeTaskAC(todolistId1, taskId));
 
   expect(Object.keys(endState).length).toBe(todolistsCount);
   expect(endState[todolistId1].length).toBe(tasksInTodolist1);
@@ -69,7 +69,7 @@ test('task-title will be changed', () => {
 
   const endState = taskReducer(
     startState,
-    changeTaskTitle(todolistId1, taskId, newTitle),
+    changeTaskTitleAC(todolistId1, taskId, newTitle),
   );
 
   expect(Object.keys(endState).length).toBe(todolistsCount);
@@ -88,7 +88,7 @@ test('task-status will be changed', () => {
 
   const endState = taskReducer(
     startState,
-    changeTaskStatus(todolistId1, taskId, taskStatus),
+    changeTaskStatusAC(todolistId1, taskId, taskStatus),
   );
 
   expect(Object.keys(endState).length).toBe(todolistsCount);

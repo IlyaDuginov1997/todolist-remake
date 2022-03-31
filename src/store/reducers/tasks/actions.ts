@@ -1,4 +1,4 @@
-export const addTask = (todolistId: string, taskTitle: string) =>
+export const addTaskAC = (todolistId: string, taskTitle: string) =>
   ({
     type: 'TASK/ADD-TASK',
     payload: {
@@ -7,7 +7,7 @@ export const addTask = (todolistId: string, taskTitle: string) =>
     },
   } as const);
 
-export const removeTask = (todolistId: string, taskId: string) =>
+export const removeTaskAC = (todolistId: string, taskId: string) =>
   ({
     type: 'TASK/REMOVE-TASK',
     payload: {
@@ -16,7 +16,11 @@ export const removeTask = (todolistId: string, taskId: string) =>
     },
   } as const);
 
-export const changeTaskTitle = (todolistId: string, taskId: string, taskTitle: string) =>
+export const changeTaskTitleAC = (
+  todolistId: string,
+  taskId: string,
+  taskTitle: string,
+) =>
   ({
     type: 'TASK/CHANGE-TASK-TITLE',
     payload: {
@@ -26,7 +30,7 @@ export const changeTaskTitle = (todolistId: string, taskId: string, taskTitle: s
     },
   } as const);
 
-export const changeTaskStatus = (
+export const changeTaskStatusAC = (
   todolistId: string,
   taskId: string,
   taskStatus: boolean,

@@ -1,13 +1,13 @@
 import { v1 } from 'uuid';
 
 import { TasksType, TodolistType } from 'components';
-import { taskReducer, addTodolist, todolistReducer, removeTodolist } from 'store';
+import { taskReducer, addTodolistAC, todolistReducer, removeTodolistAC } from 'store';
 
 test('Ids should be equals', () => {
   const startTasksState: TasksType = {};
   const startTodolistsState: TodolistType[] = [];
 
-  const action = addTodolist('New todolist for common test');
+  const action = addTodolistAC('New todolist for common test');
   const endTodolistsState = todolistReducer(startTodolistsState, action);
   const endTasksState = taskReducer(startTasksState, action);
 
@@ -39,7 +39,7 @@ test('property with todolistId should be deleted', () => {
     ],
   };
 
-  const action = removeTodolist(todolistId1);
+  const action = removeTodolistAC(todolistId1);
 
   const endState = taskReducer(startState, action);
 

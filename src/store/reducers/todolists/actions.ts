@@ -2,7 +2,7 @@ import { v1 } from 'uuid';
 
 import { FilterStatus } from 'components';
 
-export const addTodolist = (title: string) =>
+export const addTodolistAC = (title: string) =>
   ({
     type: 'TODO/ADD-TODOLIST',
     payload: {
@@ -11,7 +11,7 @@ export const addTodolist = (title: string) =>
     },
   } as const);
 
-export const removeTodolist = (todolistId: string) =>
+export const removeTodolistAC = (todolistId: string) =>
   ({
     type: 'TODO/REMOVE-TODOLIST',
     payload: {
@@ -19,7 +19,7 @@ export const removeTodolist = (todolistId: string) =>
     },
   } as const);
 
-export const changeTodolistTitle = (todolistId: string, title: string) =>
+export const changeTodolistTitleAC = (todolistId: string, title: string) =>
   ({
     type: 'TODO/CHANGE-TODOLIST-TITLE',
     payload: {
@@ -28,7 +28,7 @@ export const changeTodolistTitle = (todolistId: string, title: string) =>
     },
   } as const);
 
-export const changeTodolistFilterStatus = (
+export const changeTodolistFilterStatusAC = (
   todolistId: string,
   filterStatus: FilterStatus,
 ) =>
