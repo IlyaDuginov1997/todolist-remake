@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react';
 
-import './App.css';
+import 'App.css';
 import { v1 } from 'uuid';
 
-import { AddItemForm, FilterStatus, Todolist } from 'components';
+import { AddItemForm, FilterStatus, Todolist } from 'components/index';
 import {
   addTaskAC,
   addTodolistAC,
@@ -18,6 +18,7 @@ import {
 } from 'store';
 import { ReturnComponentType } from 'types';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AppWithReducers = (): ReturnComponentType => {
   const todolistId1 = v1();
   const todolistId2 = v1();
@@ -121,5 +122,3 @@ const AppWithReducers = (): ReturnComponentType => {
     </div>
   );
 };
-
-export default AppWithReducers;

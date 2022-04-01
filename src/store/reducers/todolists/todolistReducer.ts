@@ -2,7 +2,7 @@ import { TodolistType } from 'components';
 import { TodolistActionTypes } from 'store';
 
 export const todolistReducer = (
-  state: TodolistType[],
+  state: TodolistType[] = [],
   action: TodolistActionTypes,
 ): TodolistType[] => {
   switch (action.type) {
@@ -36,6 +36,6 @@ export const todolistReducer = (
     }
 
     default:
-      throw new Error('I do not this action-type');
+      return state;
   }
 };

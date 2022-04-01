@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './App.css';
+import 'App.css';
 import { v1 } from 'uuid';
 
 import {
@@ -10,7 +10,7 @@ import {
   TaskType,
   Todolist,
   TodolistType,
-} from 'components';
+} from 'components/index';
 import { ReturnComponentType } from 'types';
 
 const todolistId1 = v1();
@@ -69,7 +69,7 @@ const AppWithUseStates = (): ReturnComponentType => {
       taskTitle,
       isDone: false,
     };
-    // setTasks([...tasks, newTask]);
+    // setTasks([...task, newTask]);
     setTasks({ ...tasks, [todolistId]: [...tasks[todolistId], newTask] });
   };
 

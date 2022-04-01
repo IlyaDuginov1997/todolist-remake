@@ -3,7 +3,7 @@ import { v1 } from 'uuid';
 import { TasksType, TaskType } from 'components';
 import { TaskActionType } from 'store';
 
-export const taskReducer = (state: TasksType, action: TaskActionType): TasksType => {
+export const taskReducer = (state: TasksType = {}, action: TaskActionType): TasksType => {
   switch (action.type) {
     case 'TASK/ADD-TASK': {
       const { todolistId, taskTitle } = action.payload;
@@ -61,6 +61,6 @@ export const taskReducer = (state: TasksType, action: TaskActionType): TasksType
     }
 
     default:
-      throw new Error('I do not this action-type');
+      return state;
   }
 };
